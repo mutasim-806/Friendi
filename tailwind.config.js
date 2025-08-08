@@ -1,4 +1,6 @@
-import colorsModule from './src/styles/themes/colors';
+import plugin from "tailwindcss/plugin";
+import colorsModule from "./src/styles/themes/colors";
+import { typography } from "./src/styles/themes/typography";
 
 module.exports = {
   content: [
@@ -22,5 +24,41 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      const screens = theme("screens");
+
+      const baseStyles = {};
+      const mediaStyles = {};
+
+      for (const [className, breakpoints] of Object.entries(typography)) {
+        const baseClass = `.text-${className}`;
+        baseStyles[baseClass] = {
+          fontSize: breakpoints.base.fontSize,
+          lineHeight: breakpoints.base.lineHeight,
+          letterSpacing: breakpoints.base.letterSpacing,
+        };
+        for (const [breakpoint, styles] of Object.entries(breakpoints)) {
+          if (breakpoint === "base") continue;
+
+          const media = `@media (min-width: ${screens[breakpoint]})`;
+
+          if (!mediaStyles[media]) {
+            mediaStyles[media] = {};
+          }
+
+          mediaStyles[media][baseClass] = {
+            fontSize: styles.fontSize,
+            lineHeight: styles.lineHeight,
+            letterSpacing: styles.letterSpacing,
+          };
+        }
+      }
+
+      addComponents(baseStyles);
+      Object.entries(mediaStyles).forEach(([media, styles]) => {
+        addComponents({ [media]: styles });
+      });
+    }),
+  ],
 };

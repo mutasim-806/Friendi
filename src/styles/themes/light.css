@@ -1,10 +1,2 @@
-:root {
-    --text-primary: #1b191a;
-    --text-secondary: #484848;
-    --background-primary: #ffffff;
-    --background-secondary: #ffffff;
-    --icon-primary: #1b191a;
-    --icon-secondary: #484848;
-    --border-primary: #1b191a;
-    --border-secondary: #484848;
-}
+@import './friendiLight.css';
+@import './virginLight.css'
