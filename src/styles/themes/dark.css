@@ -1,0 +1,10 @@
+.dark {
+    --text-primary: #ffffff;
+    --text-secondary: #d1d1d1;
+    --background-primary: #1b191a;
+    --background-secondary: #2d2a2b;
+    --icon-primary: #ffffff;
+    --icon-secondary: #d1d1d1;
+    --border-primary: #ffffff;
+    --border-secondary: #d1d1d1;
+}
