@@ -1,8 +1,9 @@
 import plugin from "tailwindcss/plugin";
-import colorsModule from "./src/styles/themes/colors";
+import colors from "./src/styles/themes/colors";
 import { typography } from "./src/styles/themes/typography";
 import borderRadius from "./src/styles/themes/borderRadius";
 import spacing from "./src/styles/themes/spacing";
+import brandColors from "./src/styles/themes/brandColors";
 
 module.exports = {
   content: [
@@ -12,7 +13,10 @@ module.exports = {
   theme: {
     darkMode: "class",
     extend: {
-      colors: colorsModule.colors,
+      colors: {
+        ...colors,
+        ...brandColors
+      },
       screens: {
         sm: "767px",
         md: "1024px",

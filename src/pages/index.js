@@ -106,56 +106,56 @@ export default function Home() {
         </button>
       </div>
       <div className="flex flex-col gap-5">
-        <h2 className=" text-[80px] font-bold bg-backgroundTertiary text-invertPrimary">
+        <h2 className=" text-[80px] font-bold bg-backgroundTertiary text-vcr_red-700">
           TITLES
         </h2>
         <div
-          className={`flex text-start w-full text-title-xl font-bold bg-backgroundAccentPrimary text-accentSecondary`}
+          className={`flex text-start w-full text-title-xl font-bold bg-backgroundAccentPrimary`}
         >
-          <h1 className="w-[500px]"> Title-xl-bold:</h1>
-          <h1> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="w-[500px] text-cobalt-800"> Title-xl-bold:</h1>
+          <h1 className="text-midnight-800 "> The quick brown fox jumps over the lazy dog.</h1>
         </div>
         <div
-          className={`flex text-start w-full text-title-lg font-regular bg-backgroundInvertPrimary text-invertPrimary`}
+          className={`flex text-start w-full text-title-lg font-regular bg-backgroundInvertPrimary`}
         >
-          <h1 className="w-[500px]"> Title-lg-regular:</h1>
-          <h1> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="w-[500px] text-cobalt-500"> Title-lg-regular:</h1>
+          <h1 className="text-midnight-500"> The quick brown fox jumps over the lazy dog.</h1>
         </div>
         <div
-          className={`flex text-start w-full text-title-md font-bold bg-backgroundTertiary text-secondary`}
+          className={`flex text-start w-full text-title-md font-bold bg-backgroundTertiary`}
         >
-          <h1 className="w-[500px]"> Title-md-bold:</h1>
-          <h1> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="w-[500px] text-cobalt-400"> Title-md-bold:</h1>
+          <h1 className="text-midnight-400"> The quick brown fox jumps over the lazy dog.</h1>
         </div>
         <div
-          className={`flex text-start w-full text-title-sm font-regular bg-backgroundInteractivePrimaryPressed text-onButtonPrimary`}
+          className={`flex text-start w-full text-title-sm font-regular bg-backgroundInteractivePrimaryPressed`}
         >
-          <h1 className="w-[500px]"> Title-sm-regular:</h1>
-          <h1> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="w-[500px] text-cobalt-200"> Title-sm-regular:</h1>
+          <h1 className="text-midnight-200"> The quick brown fox jumps over the lazy dog.</h1>
         </div>
 
-        <h2 className="text-[80px] font-bold bg-backgroundTertiary text-invertPrimary">
+        <h2 className="text-[80px] font-bold bg-backgroundTertiary text-virgin_red-400">
           BODY
         </h2>
         <div
-          className={`flex text-start w-full text-body-lg font-bold bg-backgroundInteractiveSecondaryPressed text-statusSuccessPrimary`}
+          className={`flex text-start w-full text-body-lg font-bold bg-backgroundInteractiveSecondaryPressed`}
         >
-          <h1 className="w-[500px]"> Body-lg-bold:</h1>
-          <h1> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="w-[500px] text-vcr_grape-800"> Body-lg-bold:</h1>
+          <h1 className="text-purple-800"> The quick brown fox jumps over the lazy dog.</h1>
         </div>
         <div
-          className={`flex text-start w-full text-body-md font-regular bg-backgroundAccentSecondary text-feedbackErrorPrimary`}
+          className={`flex text-start w-full text-body-md font-regular bg-backgroundAccentSecondary`}
         >
-          <h1 className="w-[500px]"> Body-md-regular:</h1>
-          <h1> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="w-[500px] text-vcr_grape-500"> Body-md-regular:</h1>
+          <h1 className="text-purple-500"> The quick brown fox jumps over the lazy dog.</h1>
         </div>
         <div
-          className={`flex text-start w-full text-body-sm font-bold bg-iconSecondary text-iconPrimary`}
+          className={`flex text-start w-full text-body-sm font-bold bg-iconSecondary`}
         >
-          <h1 className="w-[500px]"> Body-sm-bold:</h1>
-          <h1> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="w-[500px] text-vcr_grape-200"> Body-sm-bold:</h1>
+          <h1 className="text-purple-300"> The quick brown fox jumps over the lazy dog.</h1>
         </div>
-        <h2 className="text-[80px] font-bold bg-backgroundTertiary text-invertPrimary">
+        <h2 className="text-[80px] font-bold bg-backgroundTertiary text-virin_red-200">
           LABEL
         </h2>
         <div
