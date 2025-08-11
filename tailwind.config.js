@@ -1,6 +1,8 @@
 import plugin from "tailwindcss/plugin";
 import colorsModule from "./src/styles/themes/colors";
 import { typography } from "./src/styles/themes/typography";
+import borderRadius from "./src/styles/themes/borderRadius";
+import spacing from "./src/styles/themes/spacing";
 
 module.exports = {
   content: [
@@ -22,6 +24,8 @@ module.exports = {
         semibold: "600",
         bold: "700",
       },
+      borderRadius,
+      spacing,
     },
   },
   plugins: [
