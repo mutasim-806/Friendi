@@ -68,7 +68,7 @@ export default function Home() {
         </button>
       </div>
       <div className="flex flex-col gap-5">
-        <h2 className="text-[80px] font-bold bg-backgroundTertiary text-invertPrimary">
+        <h2 className=" text-[80px] font-bold bg-backgroundTertiary text-invertPrimary">
           TITLES
         </h2>
         <div

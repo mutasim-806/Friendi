@@ -1,0 +1,25 @@
+const borderRadius = {
+  "rounded-0": "0px",
+  "rounded-2": "2px",
+  "rounded-4": "4px",
+  "rounded-6": "6px",
+  "rounded-8": "8px",
+  "rounded-10": "10px",
+  "rounded-12": "12px",
+  "rounded-16": "16px",
+  "rounded-20": "20px",
+  "rounded-24": "24px",
+  "rounded-28": "28px",
+  "rounded-32": "32px",
+  "rounded-36": "36px",
+  "rounded-40": "40px",
+  "rounded-44": "44px",
+  "rounded-48": "48px",
+  "rounded-52": "52px",
+  "rounded-56": "56px",
+  "rounded-60": "60px",
+  "rounded-64": "64px",
+  "rounded-full": "9999px",
+};
+
+export default borderRadius;
