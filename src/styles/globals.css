@@ -4,3 +4,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.en {
+    font-family: 'Inter', sans-serif;
+}
+
+.ar {
+    font-family: 'Noto Naskh Arabic', serif;
+}

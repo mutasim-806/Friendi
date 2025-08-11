@@ -3,16 +3,27 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFriendi, setIsFriendi] = useState("friendi");
+  const [isEn, setisEn] = useState("en");
 
   useEffect(() => {
     document.documentElement.classList.remove("friendi", "virgin");
     document.documentElement.classList.add(isFriendi);
   }, [isFriendi]);
 
+  useEffect(() => {
+    document.documentElement.classList.remove("en", "ar");
+    document.documentElement.classList.add(isEn);
+  }, [isEn]);
+
   const handleToggle = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle("dark", !isDarkMode);
     document.documentElement.classList.toggle("light", isDarkMode);
+  };
+
+  const handleToggleLanguage = () => {
+    const newLang = isEn === "en" ? "ar" : "en";
+    setisEn(newLang);
   };
 
   return (
@@ -47,6 +58,13 @@ export default function Home() {
           className="bg-backgroundSecondary rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
         >
           {isDarkMode ? "Light Mode" : "Dark Mode"}
+        </button>
+
+        <button
+          onClick={handleToggleLanguage}
+          className="bg-primary px-3 rounded-full border-borderPrimary p-0 text-backgroundSecondary font-medium"
+        >
+          {isEn === "en" ? "AR" : "EN"}
         </button>
       </div>
       <div className="flex flex-col gap-5">
