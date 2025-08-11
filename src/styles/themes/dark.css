@@ -1,2 +1,3 @@
-@import'./friendiDark.css';
-@import './virginDark.css';
+@import'../colorsPalette/friendiDark.css';
+@import '../colorsPalette/virginDark.css';
+@import '../colorsPalette/vcrDark.css';

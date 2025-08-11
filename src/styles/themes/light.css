@@ -1,2 +1,4 @@
-@import './friendiLight.css';
-@import './virginLight.css'
+@import '../colorsPalette/friendiLight.css';
+@import '../colorsPalette/virginLight.css';
+@import '../colorsPalette/vcrLight.css';
+@import '../colorsPalette/friendiPayLight.css';

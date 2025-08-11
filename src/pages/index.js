@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isFriendi, setIsFriendi] = useState("friendi");
+  const [isFriendi, setIsFriendi] = useState("");
   const [isEn, setisEn] = useState("en");
 
   useEffect(() => {
-    document.documentElement.classList.remove("friendi", "virgin");
-    document.documentElement.classList.add(isFriendi);
+    document.documentElement.classList.remove("friendi", "virgin", "vcr", "friendiPay");
+    isFriendi && document.documentElement.classList.add(isFriendi);
   }, [isFriendi]);
 
   useEffect(() => {
@@ -33,6 +33,18 @@ export default function Home() {
           className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
           style={{
             backgroundColor:
+              !isFriendi
+                ? "var(--text-status-info-primary)"
+                : "transparent",
+          }}
+          onClick={() => setIsFriendi("")}
+        >
+          Base
+        </button>
+        <button
+          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          style={{
+            backgroundColor:
               isFriendi === "virgin"
                 ? "var(--text-status-info-primary)"
                 : "transparent",
@@ -40,6 +52,30 @@ export default function Home() {
           onClick={() => setIsFriendi("virgin")}
         >
           virgin Mobile
+        </button>
+        <button
+          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          style={{
+            backgroundColor:
+              isFriendi === "vcr"
+                ? "var(--text-status-info-primary)"
+                : "transparent",
+          }}
+          onClick={() => setIsFriendi("vcr")}
+        >
+          VCR
+        </button>
+          <button
+          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          style={{
+            backgroundColor:
+              isFriendi === "friendiPay"
+                ? "var(--text-status-info-primary)"
+                : "transparent",
+          }}
+          onClick={() => setIsFriendi("friendiPay")}
+        >
+          Friendi Pay
         </button>
         <button
           className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
@@ -53,12 +89,14 @@ export default function Home() {
         >
           Friendi Mobile
         </button>
-        <button
-          onClick={handleToggle}
-          className="bg-backgroundSecondary rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
-        >
-          {isDarkMode ? "Light Mode" : "Dark Mode"}
-        </button>
+        {isFriendi && (
+          <button
+            onClick={handleToggle}
+            className="bg-backgroundSecondary rounded-full border-borderPrimary border-2 p-2 text-primary font-medium"
+          >
+            {isDarkMode ? "Light" : "Dark"}
+          </button>
+        )}
 
         <button
           onClick={handleToggleLanguage}
