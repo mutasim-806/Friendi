@@ -28,8 +28,10 @@ module.exports = {
         semibold: "600",
         bold: "700",
       },
-      borderRadius,
-      spacing,
+      borderRadius: { ...borderRadius },
+      spacing: { ...spacing },
+      // width: { ...spacing },
+      // height: { ...spacing },
     },
   },
   plugins: [

@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
+import Checkbox from "../components/Checkbox";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isFriendi, setIsFriendi] = useState("");
+  const [isFriendi, setIsFriendi] = useState("base");
   const [isEn, setisEn] = useState("en");
 
   useEffect(() => {
-    document.documentElement.classList.remove("friendi", "virgin", "vcr", "friendiPay");
+    document.documentElement.classList.remove(
+      "friendi",
+      "virgin",
+      "vcr",
+      "friendiPay"
+    );
     isFriendi && document.documentElement.classList.add(isFriendi);
   }, [isFriendi]);
 
@@ -32,10 +38,9 @@ export default function Home() {
         <button
           className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
           style={{
-            backgroundColor:
-              !isFriendi
-                ? "var(--text-status-info-primary)"
-                : "transparent",
+            backgroundColor: !isFriendi
+              ? "var(--text-status-info-primary)"
+              : "transparent",
           }}
           onClick={() => setIsFriendi("")}
         >
@@ -65,7 +70,7 @@ export default function Home() {
         >
           VCR
         </button>
-          <button
+        <button
           className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
           style={{
             backgroundColor:
@@ -105,6 +110,9 @@ export default function Home() {
           {isEn === "en" ? "AR" : "EN"}
         </button>
       </div>
+      <div>
+        <Checkbox checked={false} intermediate={true} />
+      </div>
       <div className="flex flex-col gap-5">
         <h2 className=" text-[80px] font-bold bg-backgroundTertiary text-vcr_red-700">
           TITLES
@@ -113,25 +121,37 @@ export default function Home() {
           className={`flex text-start w-full text-title-xl font-bold bg-backgroundAccentPrimary`}
         >
           <h1 className="w-[500px] text-cobalt-800"> Title-xl-bold:</h1>
-          <h1 className="text-midnight-800 "> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="text-midnight-800 ">
+            {" "}
+            The quick brown fox jumps over the lazy dog.
+          </h1>
         </div>
         <div
           className={`flex text-start w-full text-title-lg font-regular bg-backgroundInvertPrimary`}
         >
           <h1 className="w-[500px] text-cobalt-500"> Title-lg-regular:</h1>
-          <h1 className="text-midnight-500"> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="text-midnight-500">
+            {" "}
+            The quick brown fox jumps over the lazy dog.
+          </h1>
         </div>
         <div
           className={`flex text-start w-full text-title-md font-bold bg-backgroundTertiary`}
         >
           <h1 className="w-[500px] text-cobalt-400"> Title-md-bold:</h1>
-          <h1 className="text-midnight-400"> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="text-midnight-400">
+            {" "}
+            The quick brown fox jumps over the lazy dog.
+          </h1>
         </div>
         <div
           className={`flex text-start w-full text-title-sm font-regular bg-backgroundInteractivePrimaryPressed`}
         >
           <h1 className="w-[500px] text-cobalt-200"> Title-sm-regular:</h1>
-          <h1 className="text-midnight-200"> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="text-midnight-200">
+            {" "}
+            The quick brown fox jumps over the lazy dog.
+          </h1>
         </div>
 
         <h2 className="text-[80px] font-bold bg-backgroundTertiary text-virgin_red-400">
@@ -141,19 +161,28 @@ export default function Home() {
           className={`flex text-start w-full text-body-lg font-bold bg-backgroundInteractiveSecondaryPressed`}
         >
           <h1 className="w-[500px] text-vcr_grape-800"> Body-lg-bold:</h1>
-          <h1 className="text-purple-800"> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="text-purple-800">
+            {" "}
+            The quick brown fox jumps over the lazy dog.
+          </h1>
         </div>
         <div
           className={`flex text-start w-full text-body-md font-regular bg-backgroundAccentSecondary`}
         >
           <h1 className="w-[500px] text-vcr_grape-500"> Body-md-regular:</h1>
-          <h1 className="text-purple-500"> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="text-purple-500">
+            {" "}
+            The quick brown fox jumps over the lazy dog.
+          </h1>
         </div>
         <div
           className={`flex text-start w-full text-body-sm font-bold bg-iconSecondary`}
         >
           <h1 className="w-[500px] text-vcr_grape-200"> Body-sm-bold:</h1>
-          <h1 className="text-purple-300"> The quick brown fox jumps over the lazy dog.</h1>
+          <h1 className="text-purple-300">
+            {" "}
+            The quick brown fox jumps over the lazy dog.
+          </h1>
         </div>
         <h2 className="text-[80px] font-bold bg-backgroundTertiary text-virin_red-200">
           LABEL
