@@ -1,15 +1,17 @@
-import Button from "@/components/ui/button";
+import Button from "@/components/Button/button";
 import { useEffect, useState } from "react";
+import Checkbox from "../components/Checkbox";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isFriendi, setIsFriendi] = useState("");
+  const [isFriendi, setIsFriendi] = useState("base");
   const [isEn, setisEn] = useState("en");
   const [isBtn, setisBtn] = useState(false);
   const [isTypography, setIsTypography] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.remove(
+      "base",
       "friendi",
       "virgin",
       "vcr",
@@ -38,65 +40,71 @@ export default function Home() {
     <div className="min-h-screen p-5 bg-backgroundPrimary">
       <div className="flex justify-end mb-5 gap-4">
         <button
-          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          className="rounded-lg border-borderPrimary border-2 p-2 font-medium"
           style={{
-            backgroundColor: !isFriendi
-              ? "var(--text-status-info-primary)"
-              : "transparent",
+            backgroundColor:
+              isFriendi === "base"
+                ? "var(--background-interactive-primary) "
+                : "transparent",
+            color: isFriendi === "base" ? "var(--text-on-button-primary)" : "var(--text-primary)",
           }}
-          onClick={() => setIsFriendi("")}
+          onClick={() => setIsFriendi("base")}
         >
           Base
         </button>
         <button
-          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          className="rounded-lg border-borderPrimary border-2 p-2 font-medium"
           style={{
             backgroundColor:
               isFriendi === "virgin"
-                ? "var(--text-status-info-primary)"
+                ? "var(--background-interactive-primary)"
                 : "transparent",
+            color: isFriendi === "virgin" ? "var(--text-on-button-primary)" : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("virgin")}
         >
           virgin Mobile
         </button>
         <button
-          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          className="rounded-lg border-borderPrimary border-2 p-2 font-medium"
           style={{
             backgroundColor:
               isFriendi === "vcr"
-                ? "var(--text-status-info-primary)"
+                ? "var(--background-interactive-primary)"
                 : "transparent",
+            color: isFriendi === "vcr" ? "var(--text-on-button-primary)" : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("vcr")}
         >
           VCR
         </button>
         <button
-          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          className="rounded-lg border-borderPrimary border-2 p-2 font-medium"
           style={{
             backgroundColor:
               isFriendi === "friendiPay"
-                ? "var(--text-status-info-primary)"
+                ? "var(--background-interactive-primary)"
                 : "transparent",
+            color: isFriendi === "friendiPay" ? "var(--text-on-button-primary)" : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("friendiPay")}
         >
           Friendi Pay
         </button>
         <button
-          className="rounded-lg border-borderPrimary border-2 p-2 text-primary font-medium"
+          className="rounded-lg border-borderPrimary border-2 p-2 font-medium"
           style={{
             backgroundColor:
               isFriendi === "friendi"
-                ? "var(--text-status-info-primary)"
+                ? "var(--background-interactive-primary)"
                 : "transparent",
+            color: isFriendi === "friendi" ? "var(--text-on-button-primary)" : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("friendi")}
         >
           Friendi Mobile
         </button>
-        {isFriendi && (
+        {isFriendi !== "base" && (
           <button
             onClick={handleToggle}
             className="bg-backgroundSecondary rounded-full border-borderPrimary border-2 p-2 text-primary font-medium"
@@ -111,6 +119,27 @@ export default function Home() {
         >
           {isEn === "en" ? "AR" : "EN"}
         </button>
+      </div>
+      <div className="flex gap-5 my-4">
+        <Checkbox checked={true} label="large checked checkbox" size="large" />
+        <Checkbox
+          checked={false}
+          label="large unchecked checkbox"
+          size="large"
+        />
+        <Checkbox
+          checked={false}
+          intermediate={true}
+          label="large Intermediate checkbox"
+          size="large"
+        />
+        <Checkbox checked={true} label="Small checked checkbox" />
+        <Checkbox checked={false} label="Small unchecked checkbox" />
+        <Checkbox
+          checked={false}
+          intermediate={true}
+          label="Small Intermediate checkbox"
+        />
       </div>
       <div className="flex flex-col gap-5">
         <Button
@@ -138,9 +167,6 @@ export default function Home() {
                     Tertiary
                   </th>
                   <th className="border-2 px-4 py-2 text-left text-primary">
-                    Disabled
-                  </th>
-                  <th className="border-2 px-4 py-2 text-left text-primary">
                     Chip
                   </th>
                   <th className="border-2 px-4 py-2 text-left text-primary">
@@ -149,7 +175,7 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-                {["large", "medium", "small"].map((size) => (
+                {["disabled", "large", "medium", "small"].map((size) => (
                   <tr key={size}>
                     <td className="border-2 px-4 py-2 font-bold capitalize text-primary">
                       {size}
@@ -158,55 +184,50 @@ export default function Home() {
                       <Button
                         text={`${size} Primary`}
                         type="primary"
-                        size={size}
+                        size={size === "disabled" ? "large" : size}
                         leftIcon="[]"
                         rightIcon="[]"
+                        disabled={size === "disabled" ? true : false}
                       />
                     </td>
                     <td className="border-2 px-4 py-2">
                       <Button
                         text={`${size} Secondary`}
                         type="secondary"
-                        size={size}
+                        size={size === "disabled" ? "large" : size}
                         leftIcon="[]"
                         rightIcon="[]"
+                        disabled={size === "disabled" ? true : false}
                       />
                     </td>
                     <td className="border-2 px-4 py-2">
                       <Button
                         text={`${size} Tertiary`}
                         type="tertiary"
-                        size={size}
+                        size={size === "disabled" ? "large" : size}
                         leftIcon="[]"
                         rightIcon="[]"
-                      />
-                    </td>
-                    <td className="border-2 px-4 py-2">
-                      <Button
-                        text={`${size} Disabled`}
-                        type="primary"
-                        size={size}
-                        leftIcon="[]"
-                        rightIcon="[]"
-                        disabled={true}
+                        disabled={size === "disabled" ? true : false}
                       />
                     </td>
                     <td className="border-2 px-4 py-2">
                       <Button
                         text={`${size} Chip`}
                         chip="filled"
-                        size={size}
+                        size={size === "disabled" ? "large" : size}
                         leftIcon="[]"
                         rightIcon="[]"
+                        disabled={size === "disabled" ? true : false}
                       />
                     </td>
                     <td className="border-2 px-4 py-2">
                       <Button
                         text={`${size} Chip Outlined`}
                         chip="outlined"
-                        size={size}
+                        size={size === "disabled" ? "large" : size}
                         leftIcon="[]"
                         rightIcon="[]"
+                        disabled={size === "disabled" ? true : false}
                       />
                     </td>
                   </tr>

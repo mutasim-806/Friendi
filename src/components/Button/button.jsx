@@ -69,9 +69,7 @@ const Button = ({
 
   const typeClass =
     type === "primary"
-      ? `text-onButtonPrimary ${
-          disabled ? "" : "bg-backgroundInteractivePrimary"
-        }`
+      ? "bg-backgroundInteractivePrimary text-onButtonPrimary"
       : type === "secondary"
       ? "bg-backgroundInteractiveSecondary text-onButtonSecondary"
       : type === "tertiary"
@@ -99,12 +97,21 @@ const Button = ({
         flex items-center justify-center
         ${
           disabled
-            ? "bg-backgroundInteractiveDisabled cursor-not-allowed text-interactiveDisabled"
-            : `hover:bg-backgroundInteractivePrimaryPressed hover:text-onButtonPrimary active:bg-backgroundInteractivePrimaryPressed`
+            ? `${
+                chip !== "outlined" && type !== "tertiary"
+                  ? "bg-backgroundInteractiveDisabled"
+                  : ""
+              }  ${
+                chip === "filled" || chip === "outlined"
+                  ? "border rounded-full border-backgroundInteractiveDisabled"
+                  : ""
+              } cursor-not-allowed text-interactiveDisabled`
+            : `hover:bg-backgroundInteractivePrimaryPressed hover:text-onButtonPrimary active:bg-backgroundInteractivePrimaryPressed    
+            ${typeClass}
+            ${chipClass}
+            `
         }
         ${getRadiusClass(theme, size)}
-        ${typeClass}
-        ${chipClass}
         ${sizeClass}
       `}
       disabled={disabled}
