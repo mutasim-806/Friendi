@@ -15,7 +15,7 @@ module.exports = {
     extend: {
       colors: {
         ...colors,
-        ...brandColors
+        ...brandColors,
       },
       screens: {
         sm: "767px",
