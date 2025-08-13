@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import { useEffect, useState } from "react";
 import Checkbox from "../components/Checkbox";
 import RadioButton from "@/components/RadioButton";
+import Switch from "@/components/Switch";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -10,6 +11,7 @@ export default function Home() {
   const [isBtn, setIsBtn] = useState(false);
   const [isRadioBtn, setIsRadioBtn] = useState(false);
   const [isTypography, setIsTypography] = useState(false);
+  const [isSwitch, setIsSwitch] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.remove(
@@ -124,15 +126,14 @@ export default function Home() {
         {isFriendi !== "base" && (
           <button
             onClick={handleToggle}
-            className="bg-backgroundSecondary rounded-full border-borderPrimary border-2 p-2 text-primary font-medium"
+            className="bg-primary rounded-full border-borderPrimary border-2 p-2 text-backgroundSecondary font-medium"
           >
             {isDarkMode ? "Light" : "Dark"}
           </button>
         )}
-
         <button
           onClick={handleToggleLanguage}
-          className="bg-primary px-3 rounded-full border-borderPrimary p-0 text-backgroundSecondary font-medium"
+          className="bg-backgroundSecondary px-3 rounded-full border-borderPrimary p-0 text-primary font-medium"
         >
           {isEn === "en" ? "AR" : "EN"}
         </button>
@@ -159,6 +160,52 @@ export default function Home() {
         />
       </div>
       <div className="flex flex-col gap-5">
+        <Button
+          text="All Switch Buttons"
+          size="large"
+          type="primary"
+          rightIcon={isSwitch ? "▵" : "▿"}
+          onClick={() => setIsSwitch(!isSwitch)}
+        />
+        {isSwitch && (
+          <table className="bg-backgroundSecondary">
+            <thead>
+              <tr>
+                <th className="border-2 px-4 py-2 text-left text-primary"></th>
+                <th className="border-2 px-4 py-2 text-left text-primary">
+                  Default
+                </th>
+                <th className="border-2 px-4 py-2 text-left text-primary">
+                  Disabled
+                </th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr>
+                <td className="border-2 px-4 py-2 font-bold text-primary">
+                  Turned On
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <Switch checked={true} disabled={false} />
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <Switch checked={true} disabled={true} />
+                </td>
+              </tr>
+              <tr>
+                <td className="border-2 px-4 py-2 font-bold text-primary">
+                  Turned Off
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <Switch checked={false} disabled={false} />
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <Switch checked={false} disabled={true} />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        )}
         <Button
           text="All Radio Buttons"
           size="large"
