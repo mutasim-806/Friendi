@@ -1,12 +1,14 @@
-import Button from "@/components/Button/button";
+import Button from "@/components/Button";
 import { useEffect, useState } from "react";
 import Checkbox from "../components/Checkbox";
+import RadioButton from "@/components/RadioButton";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isFriendi, setIsFriendi] = useState("base");
-  const [isEn, setisEn] = useState("en");
-  const [isBtn, setisBtn] = useState(false);
+  const [isEn, setIsEn] = useState("en");
+  const [isBtn, setIsBtn] = useState(false);
+  const [isRadioBtn, setIsRadioBtn] = useState(false);
   const [isTypography, setIsTypography] = useState(false);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function Home() {
 
   const handleToggleLanguage = () => {
     const newLang = isEn === "en" ? "ar" : "en";
-    setisEn(newLang);
+    setIsEn(newLang);
   };
 
   return (
@@ -46,7 +48,10 @@ export default function Home() {
               isFriendi === "base"
                 ? "var(--background-interactive-primary) "
                 : "transparent",
-            color: isFriendi === "base" ? "var(--text-on-button-primary)" : "var(--text-primary)",
+            color:
+              isFriendi === "base"
+                ? "var(--text-on-button-primary)"
+                : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("base")}
         >
@@ -59,7 +64,10 @@ export default function Home() {
               isFriendi === "virgin"
                 ? "var(--background-interactive-primary)"
                 : "transparent",
-            color: isFriendi === "virgin" ? "var(--text-on-button-primary)" : "var(--text-primary)",
+            color:
+              isFriendi === "virgin"
+                ? "var(--text-on-button-primary)"
+                : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("virgin")}
         >
@@ -72,7 +80,10 @@ export default function Home() {
               isFriendi === "vcr"
                 ? "var(--background-interactive-primary)"
                 : "transparent",
-            color: isFriendi === "vcr" ? "var(--text-on-button-primary)" : "var(--text-primary)",
+            color:
+              isFriendi === "vcr"
+                ? "var(--text-on-button-primary)"
+                : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("vcr")}
         >
@@ -85,7 +96,10 @@ export default function Home() {
               isFriendi === "friendiPay"
                 ? "var(--background-interactive-primary)"
                 : "transparent",
-            color: isFriendi === "friendiPay" ? "var(--text-on-button-primary)" : "var(--text-primary)",
+            color:
+              isFriendi === "friendiPay"
+                ? "var(--text-on-button-primary)"
+                : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("friendiPay")}
         >
@@ -98,7 +112,10 @@ export default function Home() {
               isFriendi === "friendi"
                 ? "var(--background-interactive-primary)"
                 : "transparent",
-            color: isFriendi === "friendi" ? "var(--text-on-button-primary)" : "var(--text-primary)",
+            color:
+              isFriendi === "friendi"
+                ? "var(--text-on-button-primary)"
+                : "var(--text-primary)",
           }}
           onClick={() => setIsFriendi("friendi")}
         >
@@ -143,11 +160,84 @@ export default function Home() {
       </div>
       <div className="flex flex-col gap-5">
         <Button
+          text="All Radio Buttons"
+          size="large"
+          type="primary"
+          rightIcon={isRadioBtn ? "▵" : "▿"}
+          onClick={() => setIsRadioBtn(!isRadioBtn)}
+        />
+        {isRadioBtn && (
+          <table className="py-5">
+            <thead>
+              <tr>
+                <th className="border-2 px-4 py-2 text-left text-primary"></th>
+                <th className="border-2 px-4 py-2 text-left text-primary">
+                  Default
+                </th>
+                <th className="border-2 px-4 py-2 text-left text-primary">
+                  Disabled
+                </th>
+                <th className="border-2 px-4 py-2 text-left text-primary">
+                  Wihout Text
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border-2 px-4 py-2 font-bold text-primary">
+                  Selected
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <RadioButton
+                    label="Selected radio button"
+                    checked={true}
+                    onChange={() => {}}
+                  />
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <RadioButton
+                    label="Disabled selected radio button"
+                    checked={true}
+                    disabled={true}
+                    onChange={() => {}}
+                  />
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <RadioButton checked={true} onChange={() => {}} />
+                </td>
+              </tr>
+              <tr>
+                <td className="border-2 px-4 py-2 font-bold text-primary">
+                  Unselected
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <RadioButton
+                    label="Unselected radio button text"
+                    checked={false}
+                    onChange={() => {}}
+                  />
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <RadioButton
+                    label="Disabled unselected radio button"
+                    checked={false}
+                    disabled={true}
+                    onChange={() => {}}
+                  />
+                </td>
+                <td className="border-2 px-4 py-2">
+                  <RadioButton checked={false} onChange={() => {}} />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        )}
+        <Button
           text="All Buttons"
           size="large"
           type="primary"
           rightIcon={isBtn ? "▵" : "▿"}
-          onClick={() => setisBtn(!isBtn)}
+          onClick={() => setIsBtn(!isBtn)}
         />
         {isBtn && (
           <div className="overflow-x-auto py-5">

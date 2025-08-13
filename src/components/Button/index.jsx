@@ -117,9 +117,9 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
     >
-      {leftIcon && <span className="flex items-center mr-1">{leftIcon}</span>}
+      {leftIcon && <span>{leftIcon}</span>}
       {text}
-      {rightIcon && <span className="flex items-center ml-1">{rightIcon}</span>}
+      {rightIcon && <span>{rightIcon}</span>}
     </button>
   );
 };
